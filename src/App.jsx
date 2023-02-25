@@ -1,9 +1,13 @@
 import React from 'react'
+import ListProducts from './components/Products/ListProducts'
 
 function App() {
 
   return (
-    <h1>Shopping Card</h1>
+    <div>
+      Shopping Cart
+      <ListProducts />
+    </div>
   )
 }
 
