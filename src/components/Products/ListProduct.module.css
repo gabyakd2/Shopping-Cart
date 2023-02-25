@@ -1,0 +1,28 @@
+/* .products{
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+} */
+.products {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+}
+/*
+.products ul{
+    display: grid;
+    grid-template-columns: repeat(
+        auto-fit,
+        minmax(
+            250px,
+            1fr
+        )
+    );
+    gap: 1rem;
+} */
+/* .liProduct {
+    display: flex;
+    justify-content: center;
+} */

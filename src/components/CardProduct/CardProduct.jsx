@@ -9,8 +9,9 @@ export default function CardProduct({
   description,
 }) {
   return (
+    <div>
     <div className="flex font-sans">
-      <div className="flex-none w-48 relative">
+      <div className="flex-none w-60 relative">
         <img
           src={thumbnail}
           alt={title}
@@ -18,9 +19,9 @@ export default function CardProduct({
           loading="lazy"
         />
       </div>
-      <form className="flex-auto p-6">
+      <form className="flex-auto p-6 w-96">
         <div className="flex flex-wrap">
-          <h1 className="flex-auto text-lg font-semibold text-slate-900">
+          <h1 className="flex-auto text-lg font-semibold text-slate-900 dark:text-sky-400">
             {title}
           </h1>
           <div className="text-lg font-semibold text-slate-500">$ {price}</div>
@@ -33,14 +34,14 @@ export default function CardProduct({
           <div className="flex-auto flex space-x-4">
             <button
               className="h-10 px-6 font-semibold rounded-md bg-black text-white"
-              type="submit"
             >
               <AddToCartIcon />
             </button>
           </div>
         </div>
-        <p className="text-sm text-slate-700">{description}</p>
+        <p className="text-sm text-slate-700 dark:text-sky-400">{description}</p>
       </form>
+    </div>
     </div>
   );
 }
