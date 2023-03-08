@@ -1,12 +1,13 @@
 import React from "react";
-import { AddToCartIcon } from "../Icons.jsx";
+import { AddToCartIcon, RemoveFromCartIcon } from "../Icons.jsx";
 
 export default function CardProduct({
-    thumbnail,
+  thumbnail,
   title,
   price,
   brand,
   description,
+  addToCart,
 }) {
   return (
     <div>
@@ -19,7 +20,7 @@ export default function CardProduct({
           loading="lazy"
         />
       </div>
-      <form className="flex-auto p-6 w-96">
+      <div className="flex-auto p-6 w-96">
         <div className="flex flex-wrap">
           <h1 className="flex-auto text-lg font-semibold text-slate-900 dark:text-sky-400">
             {title}
@@ -34,13 +35,14 @@ export default function CardProduct({
           <div className="flex-auto flex space-x-4">
             <button
               className="h-10 px-6 font-semibold rounded-md bg-black text-white"
+              onClick={addToCart}
             >
               <AddToCartIcon />
             </button>
           </div>
         </div>
         <p className="text-sm text-slate-700 dark:text-sky-400">{description}</p>
-      </form>
+      </div>
     </div>
     </div>
   );

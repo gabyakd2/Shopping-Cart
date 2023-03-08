@@ -1,13 +1,13 @@
 import React from 'react'
-import ListProducts from './components/Products/ListProducts'
+import { CartProvider } from './Context/cartContext'
 import Home from './pages/Home'
 
 function App() {
 
   return (
-    <div>
+    <CartProvider>
       <Home />
-    </div>
+    </CartProvider>
   )
 }
 
