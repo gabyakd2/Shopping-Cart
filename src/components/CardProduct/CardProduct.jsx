@@ -7,7 +7,6 @@ export default function CardProduct({
   price,
   brand,
   description,
-  addToCart,
 }) {
   return (
     <div>
@@ -33,12 +32,12 @@ export default function CardProduct({
           <br />
         <div className="flex space-x-4 mb-6 text-sm font-medium">
           <div className="flex-auto flex space-x-4">
-            <button
+            {/* <button
               className="h-10 px-6 font-semibold rounded-md bg-black text-white"
               onClick={addToCart}
             >
               <AddToCartIcon />
-            </button>
+            </button> */}
           </div>
         </div>
         <p className="text-sm text-slate-700 dark:text-sky-400">{description}</p>

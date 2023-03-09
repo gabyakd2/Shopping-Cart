@@ -4,12 +4,13 @@ import CardProduct from "../CardProduct/CardProduct.jsx";
 import { products as initialProducts } from "../../mocks/products.json";
 import style from "./ListProduct.module.css";
 import useCart from "../../hooks/useCart.jsx";
+import { AddToCartIcon, RemoveFromCartIcon } from "../Icons.jsx";
 
 export default function ListProducts() {
   const [products] = useState(initialProducts);
   const { filterProducts } = useFilters();
   const filteredProducts = filterProducts(products);
-  const { addToCart, cart } = useCart();
+  const { addToCart, cart, removeFromCart } = useCart();
 
   const checkProductInCart = product => {
     return cart.some(item => item.id === product.id)
@@ -18,18 +19,29 @@ export default function ListProducts() {
   return (
     <main className={style.products}>
       {filteredProducts.map(
-        ({ id, title, description, price, brand, thumbnail }) => {
-          const isProductInCart = checkProductInCart(id)
+        (product) => {
+          const isProductInCart = checkProductInCart(product)
           return(
-          <div className={`my-5 ${style.liProduct}`} key={id}>
+          <div className={`my-5 ${style.liProduct}`} key={product.id}>
             <CardProduct
-              title={title}
-              description={description}
-              thumbnail={thumbnail}
-              price={price}
-              brand={brand}
-              addToCart={() => addToCart({ title, price, thumbnail })}
+              title={product.title}
+              description={product.description}
+              thumbnail={product.thumbnail}
+              price={product.price}
+              brand={product.brand}
+              // addToCart={() => addToCart(product)}
             />
+            <button onClick={() => {
+              isProductInCart 
+            ? removeFromCart(product)
+            : addToCart(product)}}
+            >
+            {
+              isProductInCart
+              ? <RemoveFromCartIcon />
+              : <AddToCartIcon />
+            }
+            </button>
           </div>
         )}
       )}
